@@ -15,7 +15,7 @@
             {% with total_items=cart|length %}
                 {% if total_items > 0 %}
                     你的購物車共有<a href="{% url 'cart:cart_detail' %}">{{ total_items }} 件商品，${{ cart.get_total_price }}</a>
-                {% else %}
+                {% elif not order %}
                     你的購物車是空的
                 {% endif %}
             {% endwith %}
