@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from .secret import STRIPE
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
+    'payment.apps.PaymentConfig',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +135,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 CART_SESSION_ID = "cart"
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+# Stripe settings
+STRIPE_PUBLISHABLE_KEY = STRIPE.get("STRIPE_PUBLISHABLE_KEY", None)  # Publishable key
+STRIPE_SECRET_KEY = STRIPE.get("STRIPE_SECRET_KEY", None) # Secret key
+STRIPE_API_VERSION = STRIPE.get("STRIPE_API_VERSION", None)
