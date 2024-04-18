@@ -3,8 +3,11 @@ RUN rabbitMQ :
     docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:management
 
 RUN celery
-
     celery -A myshop worker -l info
+
+    for windows platform 需要加上 -P eventlet 的參數
+    celery -A myshop worker -l info -P eventlet
+
 
 Strip CLI 測試
 
