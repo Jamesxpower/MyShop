@@ -139,7 +139,8 @@ CART_SESSION_ID = "cart"
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 # Redis settings
-REDIS_HOST = 'localhost'
+#REDIS_HOST = 'localhost'
+REDIS_HOST = '192.168.1.120'
 REDIS_PORT = 6379
 REDIS_DB = 1
 

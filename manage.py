@@ -3,6 +3,9 @@
 import os
 import sys
 
+# insert the GTK3 Runtime folder at the beginning. Can be bin or lib, depending on path you choose while installing.
+GTK_FOLDER = r'C:\Program Files\GTK3-Runtime Win64\bin'
+os.environ['PATH'] = GTK_FOLDER + os.pathsep + os.environ.get('PATH', '')
 
 def main():
     """Run administrative tasks."""
