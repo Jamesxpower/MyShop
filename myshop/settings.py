@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -110,13 +111,35 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
+#standard language ID
+#list of valid language IDs at http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
 
+LANGUAGES = [
+    ('en', 'English'),
+    ('tw', 'Chinese'),
+    ('es', 'Spanish'),
+]
+
+#time zone for the project
 TIME_ZONE = 'UTC'
 
+#Django’s translation system
 USE_I18N = True
 
+#datetimes are time-zone-aware
 USE_TZ = True
+
+#localized formats are used to represent dates and numbers
+#USE_L10N = False
+
+#A tuple that contains available languages for the project
+#LANGUAGES = []
+
+#A list of directories where Django looks for message files containing translations for the project
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
 
 
 # Static files (CSS, JavaScript, Images)

@@ -9,9 +9,14 @@ RUN celery
     celery -A myshop worker -l info -P eventlet
 
 
+gettext on Windows 下載連結
+https://mlocati.github.io/articles/gettext-iconv-windows.html
+
+
 Strip CLI 測試
 
     stripe listen --forward-to localhost:8000/payment/webhook/
 
 Stripe 信用卡測試連結
     https://docs.stripe.com/testing
+
