@@ -9,6 +9,9 @@ RUN celery
     celery -A myshop worker -l info -P eventlet
 
 
+RUN readis
+    docker run -it --rm --name redis -p 6379:6379 redis
+
 gettext on Windows 下載連結
 https://mlocati.github.io/articles/gettext-iconv-windows.html
 

@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+from django.utils.translation import gettext_lazy as _
 from pathlib import Path
 from .secret import STRIPE
 
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
     'payment.apps.PaymentConfig',
     'coupons.apps.CouponsConfig',
+    'rosetta',
 ]
 
 MIDDLEWARE = [
@@ -116,13 +118,14 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en-us'
 
 LANGUAGES = [
-    ('en', 'English'),
-    ('tw', 'Chinese'),
-    ('es', 'Spanish'),
+    ('en', _('English')),
+    ('zh-hant', _('Traditional Chinese')),
+    ('es', _('Spanish')),
 ]
 
 #time zone for the project
-TIME_ZONE = 'UTC'
+#TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Taipei'
 
 #Django’s translation system
 USE_I18N = True
@@ -162,8 +165,8 @@ CART_SESSION_ID = "cart"
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 # Redis settings
-#REDIS_HOST = 'localhost'
-REDIS_HOST = '192.168.1.120'
+REDIS_HOST = 'localhost'
+#REDIS_HOST = '192.168.1.120'
 REDIS_PORT = 6379
 REDIS_DB = 1
 

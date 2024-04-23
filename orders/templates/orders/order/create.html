@@ -1,11 +1,13 @@
 {% extends 'shop/base.html' %}
 
-{% block title %}進行結帳{% endblock %}
+{% load i18n %}
+
+{% block title %}{% trans "Checkout" %}<!-- 進行結帳 -->{% endblock %}
 
 {% block content %}
-    <h1>進行結帳</h1>
+    <h1>{% trans "Checkout" %}</h1>
     <div class="order-info">
-        <h3>您的訂單資訊</h3>
+        <h3>{% trans "Your order" %}<!-- 您的訂單資訊 --></h3>
         <ul>
             {% for item in cart %}
                 <li>
@@ -15,16 +17,19 @@
             {% endfor %}
             {% if cart.coupon %}
                 <li>
-                    "{{ cart.coupon.code }}" ({{ cart.coupon.discount }}% 折扣 )
+                    {% blocktrans with code=cart.coupon.code discount=cart.coupon.discount %}
+                        "{{ code }}" ({{ discount }}% off )
+                    {% endblocktrans %}
                     <span class="neg">- {{ cart.get_discount|floatformat:2 }}</span>
                 </li>
             {% endif %}
         </ul>
-        <p>總計: {{ cart.get_total_price_after_dicount|floatformat:2 }}</p>
+        <p>{% trans "Total" %}: {{ cart.get_total_price_after_dicount|floatformat:2 }}</p>
     </div>
     <form class="order-form" method="post">
         {{ form.as_p }}
-        <input type="submit" value="成立訂單">
+        <!-- <input type="submit" value="成立訂單"> -->
+        <input type="submit" value="{% trans 'Place order' %}">
         {% csrf_token %}
     </form>
 {% endblock %}
