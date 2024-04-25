@@ -44,9 +44,10 @@ def order_create(request):
 
     else:
         form = OrderCreateForm()
-        return render(request=request,
-                      template_name='orders/order/create.html',
-                      context={'cart': cart, 'form': form})
+
+    return render(request=request,
+                  template_name='orders/order/create.html',
+                  context={'cart': cart, 'form': form})
 
 @staff_member_required
 def admin_order_detail(request, order_id):

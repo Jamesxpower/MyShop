@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'payment.apps.PaymentConfig',
     'coupons.apps.CouponsConfig',
     'rosetta',
+    'localflavor',
 ]
 
 MIDDLEWARE = [

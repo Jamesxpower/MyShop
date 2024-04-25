@@ -23,3 +23,8 @@ Strip CLI 測試
 Stripe 信用卡測試連結
     https://docs.stripe.com/testing
 
+
+
+第 11 章 Adding Internationalization to Your Shop 
+    https://github.com/PacktPublishing/Django-4-by-example/tree/main/Chapter11
+
